@@ -13,8 +13,13 @@ const useStore = create((set) => ({
     performanceLevel: 'high', // 'high' | 'low'
     bloomEnabled: true,
 
+    // View mode state
+    viewMode: 'orbit', // 'orbit' | 'list'
+
     // Actions
     setFocus: (target) => set({ focusTarget: target }),
+    
+    setViewMode: (mode) => set({ viewMode: mode }),
 
     openModal: (type, project = null) => set({
         isModalOpen: true,
@@ -39,7 +44,8 @@ const useStore = create((set) => ({
         focusTarget: null,
         isModalOpen: false,
         modalType: null,
-        activeProject: null
+        activeProject: null,
+        // viewMode: 'orbit' // Optional: reset to orbit on view reset? Maybe keep current view.
     })
 }));
 
